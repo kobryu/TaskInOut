@@ -64,5 +64,5 @@ gem 'jquery-rails'
 
 gem 'dotenv-rails'
 group :production do
-  gem 'mysql2', '~> 0.5.4'
+  gem 'mysql2'
 end
