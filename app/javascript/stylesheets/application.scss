@@ -1,5 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
+.t-head {
+  @if @task {
+    color: red;
+  }
+}
+
+{
+  @if $color == blue {
+    color: white;
+    background-color: red;
+  }
+  @else {
+    color: white;
+    background-color: blue;
+  }
+}
+  background: red;
+}

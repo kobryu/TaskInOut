@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_03_022419) do
+ActiveRecord::Schema.define(version: 2022_07_11_103516) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_07_03_022419) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "favroites", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2022_07_03_022419) do
   create_table "groups", force: :cascade do |t|
     t.integer "owner_id", null: false
     t.string "name", null: false
-    t.text "introduction", null: false
+    t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 2022_07_03_022419) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "genre_id", null: false
+    t.integer "user_id"
+    t.integer "genre_id"
     t.text "title", null: false
     t.text "body", null: false
     t.date "due_date"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2022_07_03_022419) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.text "introduction", null: false
+    t.text "introduction"
     t.string "telephone_number", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false

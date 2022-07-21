@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # 管理者用
 # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
     resources :groups, only: [:index, :show, :create, :edit, :update] do
       resource :group_users, only: [:create, :destroy]
     end
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
   get 'homes/top'
   get 'homes/about'

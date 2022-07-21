@@ -8,6 +8,17 @@ class User < ApplicationRecord
   has_many :group_users, dependent: :destroy
   has_many :tasks, dependent: :destroy
 
-  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
-  validates :introduction, length: { maximum: 50 }
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
+  validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
+  validates :email, presence: true, uniqueness: true
+  
+  def full_name
+    first_name + " " + last_name
+  end
+
+  def full_name_kana
+    first_name_kana + " " + last_name_kana
+  end
 end
