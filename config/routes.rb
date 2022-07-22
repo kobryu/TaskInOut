@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    get "users/index" => "users#index"
+    root to: 'users#index'
     get "users" => "users#show"
     get "users/mypage/edit" => "users#edit"
     get "users/confirm" => "users#confirm"
