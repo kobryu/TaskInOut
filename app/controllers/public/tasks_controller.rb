@@ -1,20 +1,17 @@
 class Public::TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:show, :edit, :update, :destroy]
   before_action :set_q, only: [:index, :search]
 
   def index
     @task = Task.new
-    @tasks = current_user.tasks
-    @q = Task.ransack(params[:q])
+    #@tasks = Task.where(done_at:nil)
+    @q = Task.where(done_at:nil).ransack(params[:q])
     @tasks = @q.result
-
   end
 
   def show
-
+    @task = Task.find(params[:id])
     @post_comment = PostComment.new
-
   end
 
 
@@ -27,11 +24,18 @@ class Public::TasksController < ApplicationController
   end
 
   def edit
+    Task.find(params[:id])
+  end
 
+  def done
+    @today = Date.today
+    task = Task.find(params[:id])
+    task.update(done_at: @today )
+    redirect_to tasks_path
   end
 
   def update
-
+    Task.find(params[:id])
     if @task.update(task_params)
       redirect_to tasks_path, notice: "You have updated task successfully."
     else

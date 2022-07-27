@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    root to: 'tasks#index'
+    # root to: 'tasks#index'
     get "users/index" => "users#index"
     get "users" => "users#show"
     get "users/mypage/edit" => "users#edit"
@@ -33,12 +33,13 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    post '/tasks/:id' => 'tasks#done',   as: 'done'
     resources :groups, only: [:index, :show, :create, :edit, :update] do
       resource :group_users, only: [:create, :destroy]
     end
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
-  get 'homes/top'
+  root to: 'homes#top'
   get 'homes/about'
 
 end
