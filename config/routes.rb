@@ -19,13 +19,17 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    root to: 'users#index'
+    root to: 'tasks#index'
+    get "users/index" => "users#index"
     get "users" => "users#show"
     get "users/mypage/edit" => "users#edit"
     get "users/confirm" => "users#confirm"
     patch "users/withdraw" => "users#withdraw"
     patch "users/update" => "users#update"
     resources :tasks, only: [:index, :show, :create, :edit, :update, :destroy] do
+      collection do
+      get 'search'
+      end
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end

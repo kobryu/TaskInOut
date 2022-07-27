@@ -1,21 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-// .t-head {
-//   @if @task {
-//     color: red;
-//   }
-// }
+.over-head {
+    background-color: red;
+    color: white;
+}
 
-// {
-//   @if $color == blue {
-//     color: white;
-//     background-color: red;
-//   }
-//   @else {
-//     color: white;
-//     background-color: blue;
-//   }
-// }
-//   background: red;
-// }
+.danger-head {
+    background-color: yellow;
+    color: white;
+}
+
+.t_head {
+    background-color: blue;
+    color: white;
+}
