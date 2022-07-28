@@ -19,7 +19,7 @@ end
 40.times do |n|
 Task.create!(
 user_id:2,
-genre_id:6,
+genre_id:2,
 title: Faker::Lorem.sentence,
 body: Faker::Lorem.sentences,
 due_date: Faker::Date.between(from: '2022-07-26', to: '2022-08-10'),
