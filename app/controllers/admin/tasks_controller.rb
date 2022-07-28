@@ -9,10 +9,10 @@ before_action :set_q, only: [:index, :search]
     @tasks = @q.result.page(params[:page]).per(40)
   end
 
-  def show
-    @task = Task.find(params[:id])
-    @post_comment = PostComment.new
-  end
+  # def show
+  #   @task = Task.find(params[:id])
+  #   @post_comment = PostComment.new
+  # end
 
   def done
     @today = Date.today
@@ -21,11 +21,11 @@ before_action :set_q, only: [:index, :search]
     redirect_to tasks_path
   end
 
-  def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    redirect_to tasks_path
-  end
+  # def destroy
+  #   @task = Task.find(params[:id])
+  #   @task.destroy
+  #   redirect_to tasks_path
+  # end
 
   def search
     @results = @q.result

@@ -32,8 +32,12 @@
           </li>
 
         </ul>
+          
+          <% if admin_signed_in? %>
+  
+            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
 
-          <% if user_signed_in? %>
+          <% elsif user_signed_in? %>
             <li>
               <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-warning", method: :delete %>
             </li>
