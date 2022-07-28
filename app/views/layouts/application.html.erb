@@ -12,7 +12,7 @@
   </head>
    <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">TaskInOut</a>
+      <%= link_to "TaskInOut", root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -26,18 +26,11 @@
               <%= link_to "ユーザー一覧", admin_users_path, class: "nav-link" %>
             </li>
           <% elsif user_signed_in? %>
-            <li class="nav-item">
-              <a class="nav-link" href="/tasks">タスク一覧<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/groups">グループ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/genres">ジャンル</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/users/index">ユーザー</a>
-            </li>
+            <%= link_to "タスク", tasks_path, class: "nav-link" %>
+            <%= link_to "グループ", groups_path, class: "nav-link" %>
+            <%= link_to "ジャンル", genres_path, class: "nav-link" %>
+            <%= link_to "連絡先", users_index_path, class: "nav-link" %>
+            <%= link_to "ブックマーク", favorites_path, class: "nav-link" %>
           <% else %>
 
           <% end %>

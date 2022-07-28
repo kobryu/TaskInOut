@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
     get 'tasks' => 'tasks#index'
+    resources :tasks, only: [:index, :destroy] 
+    
   end
 
   devise_for :users,skip: [:passwords], controllers: {
@@ -32,6 +34,7 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    get 'favorites' => 'favorites#index'
     post '/tasks/:id' => 'tasks#done',   as: 'done'
     resources :groups, only: [:index, :show, :create, :edit, :update] do
       resource :group_users, only: [:create, :destroy]
