@@ -6,7 +6,7 @@ class Public::TasksController < ApplicationController
     @task = Task.new
     #@tasks = Task.where(done_at:nil)
     @q = Task.where(done_at:nil).ransack(params[:q])
-    @tasks = @q.result
+    @tasks = @q.result.page(params[:page]).per(40)
   end
 
   def show
@@ -24,7 +24,7 @@ class Public::TasksController < ApplicationController
   end
 
   def edit
-    Task.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def done
@@ -35,7 +35,7 @@ class Public::TasksController < ApplicationController
   end
 
   def update
-    Task.find(params[:id])
+    @task = Task.find(params[:id])
     if @task.update(task_params)
       redirect_to tasks_path, notice: "You have updated task successfully."
     else
