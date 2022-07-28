@@ -14,15 +14,17 @@
 			<thead>
 				<tr>
 					<th>ジャンル名</th>
+					<th>過去に投稿したタスクのジャンル検索(参考用)</th>
 					<th>機能</th>
-			
+
 				</tr>
 			</thead>
 			<tbody>
 				<% @genres.each do |genre| %>
 					<tr>
 						<td><%= genre.name %></td>
-						<td class="text-center">
+						<td><%=link_to "一覧", genre_path(genre.id), class: "btn btn-primary"%></td>
+						<td>
 						  <%= link_to "編集", edit_genre_path(genre), class: "btn btn-success" %>
 						  <%= link_to "削除", genre_path(genre.id), method: :delete, "data-confirm" => "削除します。本当によろしいですか？", class: "btn btn-danger" %>
 						</td>

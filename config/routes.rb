@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
-
   }
 
   namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
     get 'tasks' => 'tasks#index'
   end
 
@@ -36,9 +36,8 @@ Rails.application.routes.draw do
     resources :groups, only: [:index, :show, :create, :edit, :update] do
       resource :group_users, only: [:create, :destroy]
     end
-    resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :genres, only: [:index, :create, :edit, :update, :show, :destroy]
   end
   root to: 'homes#top'
-  get 'homes/about'
 
 end

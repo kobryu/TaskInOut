@@ -18,23 +18,36 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/tasks">タスク一覧<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/groups">グループ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/genres">ジャンル</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/index">ユーザー</a>
-          </li>
+          <% if admin_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "タスク一覧", admin_tasks_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ユーザー一覧", admin_users_path, class: "nav-link" %>
+            </li>
+          <% elsif user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link" href="/tasks">タスク一覧<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/groups">グループ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/genres">ジャンル</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/index">ユーザー</a>
+            </li>
+          <% else %>
+
+          <% end %>
+
+
 
         </ul>
-          
+
           <% if admin_signed_in? %>
-  
+
             <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
 
           <% elsif user_signed_in? %>
@@ -47,6 +60,9 @@
             </li>
             <li>
               <%= link_to "ログイン", new_user_session_path, class: "btn btn-warning" %>
+            </li>
+            <li>
+              <%= link_to "管理者用", new_admin_session_path, class: "btn btn-warning" %>
             </li>
           <% end %>
 
