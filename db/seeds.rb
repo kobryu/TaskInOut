@@ -16,9 +16,9 @@ password: 'test1234',
   )
 end
 
-4.times do |n|
+40.times do |n|
 Task.create!(
-user_id:4,
+user_id:2,
 genre_id:6,
 title: Faker::Lorem.sentence,
 body: Faker::Lorem.sentences,
