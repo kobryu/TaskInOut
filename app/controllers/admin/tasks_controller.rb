@@ -11,7 +11,7 @@ before_action :set_q, only: [:index, :search]
 
   def show
      @task = Task.find(params[:id])
-  
+
   end
 
   # def done
@@ -21,11 +21,11 @@ before_action :set_q, only: [:index, :search]
   #   redirect_to tasks_path
   # end
 
-  # def destroy
-  #   @task = Task.find(params[:id])
-  #   @task.destroy
-  #   redirect_to tasks_path
-  # end
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to admin_tasks_path
+  end
 
   def search
     @results = @q.result
