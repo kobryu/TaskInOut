@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
     get 'tasks' => 'tasks#index'
-    resources :tasks, only: [:index, :destroy] 
-    
+    resources :tasks, only: [:index, :show, :destroy] do
+      resources :post_comments, only: [:destroy]
+    end
+
   end
 
   devise_for :users,skip: [:passwords], controllers: {

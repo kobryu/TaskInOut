@@ -47,7 +47,7 @@
 									<td><%= task.due_date.strftime("%m/%d") %></td>
 									<td><%= task.person_name %></td>
 									<td>
-			
+										<%= link_to "詳細", admin_task_path(task), class: "btn btn-primary" %>
 										コメント数: <%= task.post_comments.count %>
 							
 										
@@ -62,9 +62,8 @@
 									<td><%= task.due_date.strftime("%m/%d") %></td>
 									<td><%= User.find(task.user_id).last_name %></td>
 									<td>
+										<%= link_to "詳細", admin_task_path(task), class: "btn btn-primary" %>
 										コメント数: <%= task.post_comments.count %>
-										
-										
 									</td>
 								</tr>
 							<% else(task.due_date - Date.today)%>
@@ -76,10 +75,9 @@
 									<td><%= task.due_date.strftime("%m/%d") %></td>
 									<td><%= User.find(task.user_id).last_name %></td>
 									<td>
-							
+										<%= link_to "詳細", admin_task_path(task), class: "btn btn-primary" %>
 										コメント数: <%= task.post_comments.count %>
-									
-									
+
 									</td>
 								</tr>
 							<% end %>

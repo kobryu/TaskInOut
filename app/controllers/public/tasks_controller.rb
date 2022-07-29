@@ -19,8 +19,14 @@ class Public::TasksController < ApplicationController
     @tasks = current_user.tasks
     @task = Task.new(task_params)
     @task.user_id = current_user.id
-    @task.save
-    redirect_to tasks_path
+    if @task.save
+      redirect_to tasks_path
+    else
+      @q = Task.where(done_at:nil).ransack(params[:q])
+      @tasks = @q.result.page(params[:page]).per(40)
+      render 'index'
+    end
+
   end
 
   def edit
