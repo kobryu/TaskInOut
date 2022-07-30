@@ -164,16 +164,31 @@ h1 {
     height: 10px;
     font-size: 80%;
 }
-.pagination>li>a {          
-  border: none;     
-  color: #696969;   
+.pagination>li>a {
+  border: none;
+  color: #696969;
 }
 
-.pagination>.active>a {     
-  background: #93c9ff;     
-  border-radius: 15px;     
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
 }
 
-.pagination>li>a:hover {        
-  border-radius: 15px;   
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+}
+.margin {
+  margin-top: 50px;
+
+}
+.form-group {
+  border: 1px #ddd solid;
+}
+.f_box{
+    display: flex;
 }
