@@ -1,9 +1,8 @@
 
-<div class="form-group" >	
+<div class="form-group" >
   <%= form_with model:task, local:true do |f| %>
-    <table id="dtBasicExample" class="table" cellspacing="0" width="100%">
+    <table id="dtBasicExample" class="table" >
       <thead>
-        
           <tr>
             <th class="mb-3 flexbox">
               <%= f.label :title, "件名" %>
@@ -15,7 +14,7 @@
             </th>
             <th class="mb-3 flexbox">
               <%= f.label :body, "内容" %>
-        			<%= f.text_field :body, autocomplete: "body", placeholder: "内容", class: "content ", style: "height: 200px;" %>
+        			<%= f.text_area :body, autocomplete: "body", placeholder: "内容", class: "content", rows:'5' %>
           	</th>
             <th class="mb-3 flexbox">
               <%=  f.label :due_date, "期日"%>
@@ -25,7 +24,6 @@
               <%= f.label :person_name, "担当者" %>
       				<%= f.text_field :person_name, autocomplete: "name", placeholder: "担当者", class: "content" %>
           	</th>
-      
             <th class="flexbox">
       				<%= f.submit "作成", class: 'btn btn-success' %>
       	    </th>

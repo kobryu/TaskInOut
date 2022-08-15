@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get "users/confirm" => "users#confirm"
     patch "users/withdraw" => "users#withdraw"
     patch "users/update" => "users#update"
-    resources :tasks, only: [:index, :show, :create, :edit, :update, :destroy] do
+    resources :tasks, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
       collection do
       get 'search'
       end

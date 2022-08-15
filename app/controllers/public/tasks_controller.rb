@@ -1,6 +1,6 @@
 class Public::TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: [:index,  :search]
 
   def index
     @task = Task.new
@@ -8,6 +8,11 @@ class Public::TasksController < ApplicationController
     @q = Task.where(done_at:nil).ransack(params[:q])
     @tasks = @q.result.page(params[:page]).per(40)
   end
+  
+  def new
+    @task = Task.new
+  end
+
 
   def show
     @task = Task.find(params[:id])
