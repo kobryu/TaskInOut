@@ -1,21 +1,21 @@
 <div style="margin-top : 100px"></div>
 <div class="container">
-	<h2>ユーザー情報編集</h2>
+	<h2>User edit</h2>
 		<%= form_with model: @user, url: users_update_path do |f| %>
 			<div class="field">
-				<%= f.label :email, "メールアドレス" %>
+				<%= f.label :email, "E-mail" %>
 				<%= f.text_field :email, autocomplete: "email", placeholder: "メールアドレス", class: "email" %>
 			</div>
 			<div class="field">
-				<%= f.label :telephone_number, "電話番号" %>
+				<%= f.label :telephone_number, "Phone number" %>
 				<%= f.text_field :telephone_number, autocomplete: "telephone_number", placeholder: "電話番号", class: "content" %>
 			</div>
 			<div class="field">
-				<%= f.label :introduction, "備考" %>
+				<%= f.label :introduction, "Introduction" %>
 				<%= f.text_area :introduction, autocomplete: "introduction", placeholder: "備考", class: "content" %>
 			</div>
-			<%= f.submit "更新する", class: 'btn btn-success' %>
+			<%= f.submit "Edit", class: 'btn btn-success' %>
 		<% end %>
-			<%= link_to "退会する", users_confirm_path, class: "btn btn-danger" %>
+			<%= link_to "Cancel", users_confirm_path, class: "btn btn-danger" %>
 
 </div>

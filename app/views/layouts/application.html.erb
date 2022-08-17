@@ -18,18 +18,18 @@
         <ul class="navbar-nav mr-auto">
           <% if admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to "タスク一覧", admin_tasks_path, class: "nav-link" %>
+              <%= link_to "Task list", admin_tasks_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "ユーザー一覧", admin_users_path, class: "nav-link" %>
+              <%= link_to "User list", admin_users_path, class: "nav-link" %>
             </li>
           <% elsif user_signed_in? %>
-            <%= link_to "タスク", tasks_path, class: "nav-link" %>
-            <%= link_to "タスク投稿", new_task_path, class: "nav-link" %>
-            <%= link_to "グループ", groups_path, class: "nav-link" %>
-            <%= link_to "ジャンル", genres_path, class: "nav-link" %>
-            <%= link_to "連絡先", users_index_path, class: "nav-link" %>
-            <%= link_to "ブックマーク", favorites_path, class: "nav-link" %>
+            <%= link_to "New task", new_task_path, class: "nav-link" %>
+            <%= link_to "Task list", tasks_path, class: "nav-link" %>
+            <%= link_to "Group", groups_path, class: "nav-link" %>
+            <%= link_to "Genre", genres_path, class: "nav-link" %>
+            <%= link_to "Contact information", users_index_path, class: "nav-link" %>
+            <%= link_to "Bookmark", favorites_path, class: "nav-link" %>
           <% else %>
 
           <% end %>
@@ -40,21 +40,21 @@
 
           <% if admin_signed_in? %>
 
-            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to 'Log out', destroy_admin_session_path, method: :delete %></li>
 
           <% elsif user_signed_in? %>
             <li>
-              <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-warning", method: :delete %>
+              <%= link_to "Log out", destroy_user_session_path, class: "btn btn-warning", method: :delete %>
             </li>
           <% else %>
             <li>
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-warning" %>
+              <%= link_to "Sign out", new_user_registration_path, class: "btn btn-warning" %>
             </li>
             <li>
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-warning" %>
+              <%= link_to "Sign in", new_user_session_path, class: "btn btn-warning" %>
             </li>
             <li>
-              <%= link_to "管理者用", new_admin_session_path, class: "btn btn-warning" %>
+              <%= link_to "Admin", new_admin_session_path, class: "btn btn-warning" %>
             </li>
           <% end %>
 

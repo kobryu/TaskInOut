@@ -2,14 +2,14 @@
   <div class='container px-5 px-sm-0'>
     <div class='row'>
       <div class='col-md-3'>
-        <h2>ユーザー情報</h2>
+        <h2>User information</h2>
         <table class='table'>
           <tr>
-        	  <th>名前</th>
+        	  <th>Name</th>
         	  <th><%= current_user.full_name %></th>
           </tr>
           <tr>
-        	  <th>備考</th>
+        	  <th>Introduction</th>
         	  <th><%= current_user.introduction %></th>
           </tr>
         </table>
@@ -25,11 +25,11 @@
           <thead>
             <tr>
             <th>ID</th>
-        		<th>名前</th>
-        		<th>フリガナ</th>
-        		<th>メールアドレス</th>
-        		<th>電話番号</th>
-        		<th>備考</th>
+        		<th>Name</th>
+        		<th>Furigana</th>
+        		<th>E-mail</th>
+        		<th>Phone number</th>
+        		<th>Introduction</th>
             </tr>
           </thead>
           <tbody>
