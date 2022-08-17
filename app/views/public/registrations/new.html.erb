@@ -1,25 +1,24 @@
-
 <div class="box1">
   <div class="box-inner">
-    <h1>新規登録</h1>
+    <h1>New account</h1>
 
     <%= form_with model: @user, url: registration_path(resource_name),  id: 'new_user', class: 'new_user',local: true do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
 
       <div class="box-name">
-        <%= f.label :"名前" %>
-        <%= f.label :"(姓)" %>
+        <%= f.label :"名前(name)" %>
+        <%= f.label :"(姓_family)" %>
         <%= f.text_field :last_name, autofocus: true %>
-        <%= f.label :"名前" %>
-        <%= f.label :"(名)" %>
+        <%= f.label :"名前(name)" %>
+        <%= f.label :"(名_first)" %>
         <%= f.text_field :first_name, autofocus: true %>
       </div>
        <div class="box-name">
-        <%= f.label :"フリガナ" %>
-        <%= f.label :"(セイ)" %>
+        <%= f.label :"フリガナ(Furigana)" %>
+        <%= f.label :"(セイ_furigana_family)" %>
         <%= f.text_field :last_name_kana, autofocus: true %>
-        <%= f.label :"フリガナ" %>
-        <%= f.label :"(メイ)" %>
+        <%= f.label :"フリガナ(Furigana)" %>
+        <%= f.label :"(メイ_furigana_first)" %>
         <%= f.text_field :first_name_kana, autofocus: true %>
       </div>
       <div class="box-email">
@@ -27,29 +26,29 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "true" %>
       </div>
         <div class="box-email">
-        <%= f.label :"電話番号（ハイフンなし）" %>
+        <%= f.label :"Phone number（without hyphen）" %>
         <%= f.text_field :telephone_number, autocomplete: true %>
       </div>
 
       <div class="box-password">
-        <%= f.label :パスワード %>
+        <%= f.label :"Password" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <em>(More than <%= @minimum_password_length %> Letters)</em>
         <% end %>
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
       <div class="box-password">
-        <%= f.label :パスワード確認 %>
+        <%= f.label :"password confirmation" %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
       <div class="box-login">
-        <%= f.submit "新規登録" %>
+        <%= f.submit "Registration" %>
       </div>
     <% end %>
     <div class="box-newusr">
-      <p><span>------------</span> 既に登録されていますか？ <span>------------</span></p>
+      <p><span>------------</span> Already created account? <span>------------</span></p>
     <%= render "public/shared/links" %>
     </div>
   </div>

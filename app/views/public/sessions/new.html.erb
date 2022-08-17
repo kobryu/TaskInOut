@@ -1,14 +1,14 @@
 <div class="box5">
   <div class="box-inner">
-     <h1>ログイン</h1>
+     <h1>Log in</h1>
        <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
         <div class="field mb2">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-    
+
         <div class="field mb2">
-          <%= f.label :パスワード %><br />
+          <%= f.label :"Password" %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
         <% if devise_mapping.rememberable? %>
@@ -18,12 +18,12 @@
           </div>
         <% end %>
         <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-primary" %>
+          <%= f.submit "Log in", class: "btn btn-primary" %>
         </div>
         <% end %>
       <div class="box-newusr">
-        <p><span>------------</span> 登録がお済み出ない方<span>------------</span></p>
-        <p><%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
+        <p><span>------------</span> If you have not created an account<span>----------</span></p>
+        <p><%= link_to "here", new_user_registration_path, class: "underline" %>Click "here" button.</p>
       </div>
   </div>
 </div>
