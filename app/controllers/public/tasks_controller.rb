@@ -3,12 +3,11 @@ class Public::TasksController < ApplicationController
   before_action :set_q, only: [:index,  :search]
 
   def index
-    @task = Task.new
     #@tasks = Task.where(done_at:nil)
     @q = Task.where(done_at:nil).ransack(params[:q])
     @tasks = @q.result.page(params[:page]).per(40)
   end
-  
+
   def new
     @task = Task.new
   end
@@ -21,15 +20,14 @@ class Public::TasksController < ApplicationController
 
 
   def create
+    # byebug
     @tasks = current_user.tasks
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
       redirect_to tasks_path
     else
-      @q = Task.where(done_at:nil).ransack(params[:q])
-      @tasks = @q.result.page(params[:page]).per(40)
-      render 'index'
+      render 'new'
     end
 
   end
