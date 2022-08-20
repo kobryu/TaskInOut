@@ -25,9 +25,18 @@ Todo Listをグループで共有することにより、仕事優先度がわ�
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+- その他ツール :Font Awesome
 
 ## 設計書
-![Task_In_Out (1)](https://user-images.githubusercontent.com/104051986/176986863-8e5487fc-aeef-43f3-8155-ad16c4e1e735.jpg)
+![Task_In_Out (2)](https://user-images.githubusercontent.com/104051986/185741461-f84e0acb-5369-4cc7-adbb-5e75f61ef122.jpg)
+
+## TaskInOut【5月生】PF発表用資料
+https://docs.google.com/presentation/d/1fCzieXd6i3ZT4B_j_jaWO8bIbvXUHP8UcOJPIwp5d7U/edit#slide=id.gfdc00377d3_0_65
+
+
+
+
+
 
 
 
