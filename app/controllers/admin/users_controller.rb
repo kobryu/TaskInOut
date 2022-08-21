@@ -21,7 +21,5 @@ class Admin::UsersController < ApplicationController
   end
 
   def withdraw
-
   end
-
 end

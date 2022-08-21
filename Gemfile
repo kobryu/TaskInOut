@@ -70,6 +70,7 @@ gem 'ransack'
 
 group :development, :test do
   gem 'faker'
+  gem 'rubocop', require: false
 end
 
 gem 'faker'

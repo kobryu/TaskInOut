@@ -1,17 +1,16 @@
 class Admin::TasksController < ApplicationController
-before_action :authenticate_admin!
-before_action :set_q, only: [:index, :search]
+  before_action :authenticate_admin!
+  before_action :set_q, only: [:index, :search]
 
   def index
     @task = Task.new
-    #@tasks = Task.where(done_at:nil)
+    # @tasks = Task.where(done_at:nil)
     @q = Task.all.ransack(params[:q])
     @tasks = @q.result.page(params[:page]).per(40)
   end
 
   def show
-     @task = Task.find(params[:id])
-
+    @task = Task.find(params[:id])
   end
 
   # def done
@@ -36,5 +35,4 @@ before_action :set_q, only: [:index, :search]
   def set_q
     @q = Task.ransack(params[:q])
   end
-
 end

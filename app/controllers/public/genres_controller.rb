@@ -16,6 +16,7 @@ class Public::GenresController < ApplicationController
       render :index
     end
   end
+
   def show
     @genre = Genre.find(params[:id])
   end
@@ -45,5 +46,4 @@ class Public::GenresController < ApplicationController
   def ensure_genre
     @genre = Genre.find(params[:id])
   end
-
 end

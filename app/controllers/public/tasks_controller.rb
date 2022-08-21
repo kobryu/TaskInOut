@@ -1,10 +1,10 @@
 class Public::TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_q, only: [:index,  :search]
+  before_action :set_q, only: [:index, :search]
 
   def index
-    #@tasks = Task.where(done_at:nil)
-    @q = Task.where(done_at:nil).ransack(params[:q])
+    # @tasks = Task.where(done_at:nil)
+    @q = Task.where(done_at: nil).ransack(params[:q])
     @tasks = @q.result.page(params[:page]).per(40)
   end
 
@@ -12,12 +12,10 @@ class Public::TasksController < ApplicationController
     @task = Task.new
   end
 
-
   def show
     @task = Task.find(params[:id])
     @post_comment = PostComment.new
   end
-
 
   def create
     # byebug
@@ -29,7 +27,6 @@ class Public::TasksController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def edit
@@ -39,24 +36,24 @@ class Public::TasksController < ApplicationController
   def done
     @today = Date.today
     task = Task.find(params[:id])
-    task.update(done_at: @today )
+    task.update(done_at: @today)
     redirect_to tasks_path
   end
 
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to tasks_path, notice: "You have updated task successfully."
+      redirect_to tasks_path, notice: 'You have updated task successfully.'
     else
-      render "edit"
+      render 'edit'
 
     end
   end
 
   def destroy
     if @task = Task.find(params[:id])
-    @task.destroy
-    redirect_to tasks_path
+      @task.destroy
+      redirect_to tasks_path
     end
   end
 
@@ -71,13 +68,11 @@ class Public::TasksController < ApplicationController
   end
 
   def task_params
-     params.require(:task).permit(:user_id, :title, :body, :due_date, :genre_id, :person_name)
+    params.require(:task).permit(:user_id, :title, :body, :due_date, :genre_id, :person_name)
   end
 
   def ensure_correct_user
     @task = Task.find(params[:id])
-    unless @task.user == current_user
-      redirect_to tasks_path
-    end
+    redirect_to tasks_path unless @task.user == current_user
   end
 end

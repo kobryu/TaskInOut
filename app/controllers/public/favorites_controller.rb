@@ -1,5 +1,4 @@
 class Public::FavoritesController < ApplicationController
-
   def index
     @favorites = Favorite.where(user_id: current_user.id)
   end
@@ -17,5 +16,4 @@ class Public::FavoritesController < ApplicationController
     @favorite.destroy
     redirect_to request.referer
   end
-
 end

@@ -10,16 +10,14 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
     if @user.update(user_params)
       redirect_to users_path(current_user)
     else
-      render "edit"
+      render 'edit'
     end
-
   end
 
   def confirm
@@ -34,10 +32,11 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :telephone_number, :email, :introduction, :genre_id)
+    params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :telephone_number, :email,
+                                 :introduction, :genre_id)
   end
 
   def ensure_correct_user
-     @user = current_user
+    @user = current_user
   end
 end
